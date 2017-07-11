@@ -5,7 +5,7 @@
 
 
 for(var i = 1; i<=20; i++){
-  // divisible by 3 and 5
+  // divisible by 3 and 5!
   if (i%15 === 0){
     console.log('FizzBuzz');
 //If the number is divisible by 3, print "Fizz".
