@@ -1,0 +1,2 @@
+# fizzbuzz
+algorithm fizzbuzz javascript
