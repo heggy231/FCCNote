@@ -5,6 +5,7 @@
 
 
 for(var i = 1; i<=20; i++){
+  // special
   if(i%3 === 0){
 //If the number is divisible by 3, print "Fizz".
     console.log('Fizz');
