@@ -5,11 +5,12 @@
 
 
 for(var i = 1; i<=20; i++){
-  // special
-  if(i%3 === 0){
+  // divisible by 3 and 5
+  if (i%15 === 0){
+    console.log('FizzBuzz');
 //If the number is divisible by 3, print "Fizz".
+  } else if(i%3 === 0){
     console.log('Fizz');
-
 // divisible by 5
   } else if (i%5 === 0) {
     console.log('Buzz');   
