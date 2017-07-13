@@ -3,8 +3,19 @@
 <head>
     <title>Equality Operators Example 1</title>
     <script type="text/javascript">
+/*
+Lecture Note from PPT tutorial 2:
 
-/* JavaScript calls the valueOf method to convert an object to a primitive value. You rarely need to invoke the valueOf method yourself; JavaScript automatically invokes it when encountering an object where a primitive value is expected. */
+JavaScript calls the valueOf method to convert an object to a primitive value. You rarely need to invoke the valueOf method yourself; JavaScript automatically invokes it when encountering an object where a primitive value is expected. 
+
+Lesson: The equal operator in ECMAScript is the double equal sign (==), and it returns true if the operands are equal.
+
+The following conversion takes place:
+- If an operand is a Boolean value, convert it into a numeric value before checking for equality. A value of false converts to 0, whereas a value of true converts to 1.
+
+- If one operand is a string and the other is a number, attempt to convert the string into a number before checking for equality.
+
+*/
 
 
         var obj = {
@@ -16,18 +27,21 @@
 
         };
 
+
         var obj2 = {
             breed: "fido",
             valueOf: function (){
-                return 5;
+                return 'kitten power';
 
             }
 
         };
 
 
-        alert(5 == obj ); // true
-        alert(5 === obj ); // false
+        alert(5 == obj );             // true js looks at valueOf by obj default when comparing obj to something.  Here it convert type to number
+        alert('kitten power' == obj2) // true js looks at valueOf by obj default when comparing obj to something. Here it convert type to string
+        alert(5 === obj );            // false 
+        alert('kitten power' === obj2) // false
 
         alert(null == undefined);    //true
         alert(null === undefined);   //false

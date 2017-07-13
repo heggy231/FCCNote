@@ -1,3 +1,5 @@
+## List of typical interview questions asked
+
 # fizzbuzz
 algorithm fizzbuzz javascript
 
