@@ -16,27 +16,20 @@ The following conversion takes place:
 - If one operand is a string and the other is a number, attempt to convert the string into a number before checking for equality.
 
 */
-
-
         var obj = {
             breed: "fido",
             valueOf: function (){
                 return 5;
-
             }
-
         };
-
 
         var obj2 = {
             breed: "fido",
+            // toString: function (){ // this method doesn't get look at first
             valueOf: function (){
                 return 'kitten power';
-
             }
-
         };
-
 
         alert(5 == obj );             // true js looks at valueOf by obj default when comparing obj to something.  Here it convert type to number
         alert('kitten power' == obj2) // true js looks at valueOf by obj default when comparing obj to something. Here it convert type to string
