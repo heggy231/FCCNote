@@ -107,3 +107,220 @@ var expression = /\d+/g;
 
 // This code counts the matches of expression in testString
 var digitCount = testString.match(expression).length;
+
+# Find Whitespace with Regular Expressions (use \s to select all the whitespace characters in the string
+We can also use regular expression selectors like \s to find whitespace in a string.
+
+The whitespace characters are " " (space), \r (the carriage return), \n (newline), \t (tab), and \f (the form feed).
+
+The whitespace regular expression looks like this:
+
+/\s+/g
+
+// Setup
+var testString = "How many spaces are there in this sentence?";
+
+// Only change code below this line.
+
+var expression = /\s+/g;  // output: 7
+
+// Only change code above this line
+
+// This code counts the matches of expression in testString
+var spaceCount = testString.match(expression).length;
+
+#Invert Regular Expression Matches with JavaScript
+You can invert any match by using the uppercase version of the regular expression selector.
+
+For example, \s will match any whitespace, and \S will match anything that isn't whitespace.
+
+Instructions
+Use /\S/g to count the number of non-whitespace characters in testString.
+var testString = "How many non-space characters are there in this sentence?";
+
+// count the number of non-whitespace characters in testString.
+// note there is no trailing + for finding non-whitespace characters
+var expression = /\S/g;  
+
+// This code counts the matches of expression in testString
+var nonSpaceCount = testString.match(expression).length;
+
+## Object Oriented Programming
+# Declare JavaScript Objects as Variables
+
+Give your motorBike object a wheels, engines and seats attribute and set them to numbers.
+var car = {
+  "wheels":4,
+  "engines":1,
+  "seats":5
+};
+
+var motorBike = {
+
+  // Only change code below this line.
+  "wheels":2,
+  "engines":1,
+  "seats":1
+};
+
+# Construct JavaScript Objects with Functions
+We are also able to create objects using constructor functions.
+
+A constructor function is given a capitalized name to make it clear that it is a constructor.
+
+Here's an example of a constructor function:
+
+var Car = function() {
+  this.wheels = 4;
+  this.engines = 1;
+  this.seats = 5;
+};
+
+In a constructor the this variable refers to the new object being created by the constructor. So when we write,
+
+  this.wheels = 4;
+
+inside of the constructor we are giving the new object it creates a property called wheels with a value of 4.
+
+You can think of a constructor as a description for the object it will create.
+
+Have your MotorBike constructor describe an object with wheels, engines and seats properties and set them to numbers.
+
+
+# Make Instances of Objects with a Constructor Function
+Now let's put that great constructor function we made in the last lesson to use!
+
+To use a constructor function we call it with the new keyword in front of it like:
+
+var myCar = new Car();
+
+myCar is now an instance of the Car constructor that looks like the object it described:
+
+{
+  wheels: 4,
+  engines: 1,
+  seats: 5
+}
+Note that it is important to use the new keyword when calling a constructor. This is how Javascript knows to create a new object and that all the references to this inside the constructor should be referring to this new object.
+
+Now, once the myCar instance is created it can be used like any other object and can have its properties accessed and modified the same way you would usually. For example:
+
+myCar.turboType = "twin";
+
+Our myCar variable now has a property turboType with a value of "twin".
+
+In the editor, use the Car constructor to create a new instance and assign it to myCar.
+
+Then give myCar a nickname property with a string value.
+
+var Car = function() {
+  this.wheels = 4;
+  this.engines = 1;
+  this.seats = 5;
+};
+
+// Only change code below this line.
+// To use a constructor function we call it with the new keyword in front
+// myCar is now an instance of the Car constructor
+var myCar = new Car();
+myCar.nickname = "BeBop";
+
+## Make Unique Objects by Passing Parameters to our Constructor
+The constructor we have is great, but what if we don't always want to create the same object?
+
+To solve this we can add parameters to our constructor. We do this like the following example:
+
+var Car = function(wheels, seats, engines) {
+  this.wheels = wheels;
+  this.seats = seats;
+  this.engines = engines;
+};
+Now we can pass in arguments when we call our constructor.
+
+var myCar = new Car(6, 3, 1);
+
+This code will create an object that uses the arguments we passed in and looks like:
+
+{
+  wheels: 6,
+  seats: 3,
+  engines: 1
+}
+Now give it a try yourself! Alter the Car constructor to use parameters to assign values to the wheels, seats, and engines properties.
+
+Then call your new constructor with three number arguments and assign it to myCar to see it in action.
+
+
+var Car = function(wheels, seats, engines) {
+  //Change this constructor
+  this.wheels = wheels;
+  this.seats = seats;
+  this.engines = engines;
+};
+
+//Try it out here
+var myCar = new Car (4,2,1);
+
+## Make Object Properties Private
+Objects have their own attributes, called properties, and their own functions, called methods.
+
+In the previous challenges, we used the this keyword to reference public properties of the current object.
+
+We can also create private properties and private methods, which aren't accessible from outside the object.
+
+To do this, we create the variable inside the constructor using the var keyword we're familiar with, instead of creating it as a property of this.
+
+This is useful for when we need to store information about an object but we want to control how it is used by outside code.
+
+For example, what if we want to store the speed our car is traveling at but we only want outside code to be able to modify it by accelerating or decelerating, so the speed changes in a controlled way?
+
+In the editor you can see an example of a Car constructor that implements this pattern.
+
+Now try it yourself! Modify the Bike constructor to have a private property called gear and two public methods called getGear and setGear to get and set that value.
+
+var Bike = function() {
+
+  // private variable gear
+  var gear = 2;
+
+  // update gear 
+  this.setGear = function(change) {
+    gear = change;
+  };
+
+  // get gear
+  this.getGear = function() {
+    return gear;
+  }
+};
+
+// creates new obj myBike of Bike {setGear: function, getGear: function}
+var myBike = new Bike();
+myBike.setGear(4); // gear is 6
+myBike.getGear();  // 6
+
+var Car = function() {
+  // this is a private variable
+  var speed = 10;
+
+  // these are public methods
+  this.accelerate = function(change) {
+    speed += change;
+  };
+
+  this.decelerate = function() {
+    speed -= 5;
+  };
+
+  this.getSpeed = function() {
+    return speed;
+  };
+};
+
+var myCar = new Car();
+myCar.accelerate(20); // speed is 30
+myCar.decelerate(); // decelerate -5 now speed is 25
+myCar.getSpeed(); // output: 25
+
+
+
