@@ -580,3 +580,93 @@ function reverseString(str) {
 }
 
 reverseString("hello");
+
+
+# Check for Palindromes
+Return true if the given string is a palindrome. Otherwise, return false.
+
+A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+
+Note
+You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything lower case in order to check for palindromes.
+
+We'll pass strings with varying formats, such as "racecar", "RaceCar", and "race CAR" among others.
+
+We'll also pass strings with special symbols, such as "2A3*3a2", "2A3 3a2", and "2_A3*3#A2".
+
+Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+Here are some helpful links:
+
+String.prototype.replace()
+String.prototype.toLowerCase()
+
+
+function palindrome(str) {
+  // regex / /g global match multiple
+  // regex [ ] start of character set 
+  // first replace any nonword char
+  // second make it toLowerCase
+  // Compare it to reverse order of the word
+  return str.replace(/[\W_]/g, '').toLowerCase() === str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('');
+  
+}
+
+
+
+palindrome("eye");
+
+https://forum.freecodecamp.org/t/freecodecamp-algorithm-challenge-guide-check-for-palindromes/16004
+
+
+- forEach to iterate this 
+
+arrStr = ["fox", "went", "outside"];
+
+function getEachLength (item) {
+  console.log(item.length);
+}
+
+arrStr.forEach(getEachLength);
+
+
+
+- Get the longest str
+Find the Longest Word in a String
+Return the length of the longest word in the provided sentence.
+
+Your response should be a number.
+Here are some helpful links:
+
+String.prototype.split()
+String.length
+
+
+function findLongestWord (str) {
+
+  // maxLength is holding pot for each time 
+  // iterate compare whose longer
+  var maxLength = 0;
+
+  // str gets split into array at empty space
+  // arrStr
+  var arrStr = str.split (" ");
+  // output: ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
+
+  // loop thru the new array arrStr
+  for (var i = 0; i < arrStr.length; i++) {
+    
+    // each arrStr's ith position's length, compare with maxLength
+    // only pass when current ith position item's length bigger than
+    // maxLength
+    if (arrStr[i].length > maxLength) {
+  
+      // update maxLength with new longest length
+      maxLength = arrStr[i].length;
+    }
+  }
+
+  return maxLength;
+}
+
+findLongestWord("The quick brown fox jumped over the lazy dog");
