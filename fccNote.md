@@ -670,3 +670,103 @@ function findLongestWord (str) {
 }
 
 findLongestWord("The quick brown fox jumped over the lazy dog");
+
+
+- forEach toUpperCase
+var str = "I'm a little tea pot";
+var convStr = str.split(' ');
+convStr; 
+(5) ["I'm", "a", "little", "tea", "pot"]
+
+function firstLetterUpper (item){
+  console.log(item[0].toUpperCase());
+}
+
+convStr.forEach(firstLetterUpper);
+I
+A
+L
+T
+P
+
+
+- Title Case a Sentence
+
+https://medium.com/@hugh.winchester/title-case-a-sentence-18c43fe1496f
+https://forum.freecodecamp.org/t/freecodecamp-algorithm-challenge-guide-title-case-a-sentence/16088
+
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+To iterate over objects, we use a for in loop
+var instructor = {
+  name: "Heggy",
+  hobby: "Algorithm",
+  afterWork: "feeding cats"
+}
+
+for (var singleKey in instructor) {
+  console.log(instructor[singleKey]);
+}
+
+- for..in loop key value pair challenge
+var nameAndHobbies = {
+	heggy: "coding",
+	frankie: "building",
+	erin: "running",
+	jimmy: "singing"
+};
+
+// Output should be:
+// coding => heggy
+// building => frankie ... etc.
+
+for ( var key in nameAndHobbies ) {
+	console.log(nameAndHobbies[key] + ' => ' + key) 
+}
+
+// In order to print out key of each obj => ref as key
+// Key is a variable that will be assigned to each key(property) in namesAndHobbies
+// To print out each values use bracket notation since properties are getting accessed 
+// 	through using variable.  ex: nameAndHobbies[variable]
+
+
+// create custome made replaceAt method (0, 'T')
+String.prototype.replaceAt = function(index, character) {
+  
+    // 'this' stands for newTitle[position] => ex 'tea'
+    // this.substr (0, index which is 0)
+    // substr (0, number of char to extract) => substr(0,0) means start at 0 but extract none(0)
+    // character => T from newTitle[position].charAt(0).toUpperCase() means grab first char and make it upperCase
+    // this.substr(1) => extract string start at index 1, (no secnd argmt defaults to the all the rest)
+    // output: Tea
+    return this.substr(0, index) + character + this.substr(index + character.length);
+};
+
+
+# Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+# hint: String.prototype.split(' ')
+
+function titleCase(str) {
+    var newTitle = str.split(' ');
+    var updatedTitle = [];
+  
+    // for...in obj iteration for (var key in obj)
+    for (var position in newTitle) {
+        
+        // newTitle[position]
+        // .replaceAt custome made method called with index = 0 and first char becoming upperCase ('T')
+        // newTitle[position].charAt(0) => extract single charAt position 0 (output: t from tea)
+        // updateTitle[position] each position get new word inside array
+        updatedTitle[position] = newTitle[position].toLowerCase().replaceAt(0, newTitle[position].charAt(0).toUpperCase());
+    }
+    // .join change updateTitle back into string from array of str
+    // .join(' ') joins with spacing in betwn
+    return updatedTitle.join(' ');
+}
+
+//debugger;
+titleCase("I'm a little tea pot");
