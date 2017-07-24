@@ -758,7 +758,7 @@ function titleCase(str) {
     for (var position in newTitle) {
         
         // newTitle[position]
-        // .replaceAt custome made method called with index = 0 and first char becoming upperCase ('T')
+        // .replaceAt custom made method called with index = 0 and first char becoming upperCase ('T')
         // newTitle[position].charAt(0) => extract single charAt position 0 (output: t from tea)
         // updateTitle[position] each position get new word inside array
         updatedTitle[position] = newTitle[position].toLowerCase().replaceAt(0, newTitle[position].charAt(0).toUpperCase());
@@ -770,3 +770,6 @@ function titleCase(str) {
 
 //debugger;
 titleCase("I'm a little tea pot");
+
+rithm school reference object iteration 
+https://www.rithmschool.com/courses/javascript/javascript-objects-iteration
